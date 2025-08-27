@@ -123,40 +123,7 @@ function hapusOtomatis() {
   fileInputs.forEach(input => input.value = "");
 }
 
-// 🔹 Fungsi gabung nama file akhir (JU1, JU2, JU3 → JU1-3)
-function gabungNamaFile() {
-  const fileInputs = document.querySelectorAll(".file-name");
-  fileInputs.forEach(input => {
-    const val = input.value.trim();
-    if (!val) return;
-
-    const match = val.match(/^([A-Za-z]+)(\d+)-([A-Za-z]+)?(\d+)?$/);
-    if (match) return; // sudah dalam format range
-
-    const parts = val.match(/^([A-Za-z]+)(\d+)$/);
-    if (!parts) return;
-
-    const prefix = parts[1];
-    const startNum = parseInt(parts[2]);
-    let endNum = startNum;
-
-    // cari angka terakhir yang sama prefix di bawahnya
-    for (let i = input.parentElement.querySelectorAll(".file-name").length - 1; i >= 0; i--) {
-      const otherVal = fileInputs[i].value.trim();
-      const otherParts = otherVal.match(/^([A-Za-z]+)(\d+)$/);
-      if (otherParts && otherParts[1] === prefix) {
-        endNum = parseInt(otherParts[2]);
-        break;
-      }
-    }
-
-    if (endNum !== startNum) {
-      input.value = `${prefix}${startNum}-${endNum}`;
-    }
-  });
-}
-
-// 🔹 Fungsi hapus isi box (textarea isi nomor)
+// 🔹 Fungsi baru: hapus isi box (textarea)
 function hapusIsiBox() {
   const textareas = document.querySelectorAll(".file-box textarea");
   textareas.forEach(area => area.value = "");
