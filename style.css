@@ -1,139 +1,103 @@
-/* Umum */
 body {
   font-family: Arial, sans-serif;
-  background: #f7f9fc;
+  background: #fafafa;
+  color: #333;
   margin: 0;
-  padding: 0;
-}
-
-.container {
-  max-width: 900px;
-  margin: 30px auto;
-  background: #fff;
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  line-height: 1.5;
 }
 
 h1 {
   text-align: center;
-  color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-size: 26px;
+  color: #222;
 }
 
-/* Top fields */
-.top-fields {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.top-fields,
+.autofill-fields {
+  display: flex;
+  flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 20px;
+  align-items: center;
 }
 
 .top-fields input,
 .top-fields select,
-.top-fields textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  width: 100%;
-}
-
-.top-fields textarea {
-  min-height: 60px;
-  resize: vertical;
-}
-
-/* Tombol autofill */
-.autofill-fields {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
+.top-fields textarea,
 .autofill-fields input {
-  flex: 1;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  transition: border 0.2s, box-shadow 0.2s;
 }
 
-.autofill-fields button {
-  padding: 10px 16px;
-  border: none;
-  background: #007bff;
+.top-fields input:focus,
+.top-fields select:focus,
+.top-fields textarea:focus,
+.autofill-fields input:focus {
+  border-color: green;
+  box-shadow: 0 0 5px rgba(0,128,0,0.3);
+  outline: none;
+}
+
+#extraAdmin, 
+#extraNavy {
+  flex: 1;
+  min-width: 300px;
+  height: 80px;
+}
+
+button {
+  background: green;
   color: white;
-  border-radius: 6px;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
   cursor: pointer;
+  font-size: 14px;
   transition: background 0.2s;
 }
 
-.autofill-fields button:hover {
-  background: #0056b3;
+button:hover {
+  background: darkgreen;
 }
 
-/* Kolom file */
 .file-columns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
 }
 
-.file-column {
-  background: #f0f4ff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+.file-box {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.file-column h3 {
-  margin-top: 0;
-  font-size: 16px;
+.file-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.file-box input,
+.file-box textarea {
   margin-bottom: 10px;
-  color: #444;
-}
-
-.file-column input,
-.file-column textarea {
-  width: 100%;
   padding: 8px;
-  margin-bottom: 8px;
-  border: 1px solid #bbb;
-  border-radius: 5px;
-  font-size: 13px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
-.file-column textarea {
-  min-height: 80px;
+.file-box textarea {
+  flex: 1;
   resize: vertical;
-}
-
-/* Tombol kecil */
-.small-btn {
-  display: inline-block;
-  padding: 6px 10px;
-  font-size: 12px;
-  margin-top: 5px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.btn-hapus {
-  background: #dc3545;
-  color: white;
-}
-
-.btn-hapus:hover {
-  background: #a71d2a;
-}
-
-.btn-range {
-  background: #28a745;
-  color: white;
-}
-
-.btn-range:hover {
-  background: #1c7c31;
+  min-height: 220px;
 }
